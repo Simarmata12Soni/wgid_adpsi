@@ -245,12 +245,21 @@
                         <td>' + (feature.properties['tree_settl'] !== null ? autolinker.link(String(feature.properties['tree_settl']).replace(/'/g, '\'').toLocaleString()) : '') + ' m</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Waktu Survei</th>\
+                        <th scope="row">Nama Surveyor</th>\
                         <td>' + (feature.properties['tree_surve'] !== null ? autolinker.link(String(feature.properties['tree_surve']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Nama Surveyor</th>\
-                        <td>' + (feature.properties['tree_sur_1'] !== null ? autolinker.link(String(feature.properties['tree_sur_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Waktu Survei</th>\
+                        <td>' + (
+                    feature.properties['tree_sur_1'] !== null
+                        ? new Date(feature.properties['tree_sur_1'].replace(/\//g, '-')).toLocaleDateString('id-ID', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })
+                        : ''
+                ) + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Harga Pohon</th>\
