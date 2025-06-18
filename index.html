@@ -193,12 +193,12 @@
         function pop_PohonAdopsi_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">ID Pohon</th>\
-                        <td>' + (feature.properties['tree_id'] !== null ? autolinker.link(String(feature.properties['tree_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row"><h3>Kode Pohon</h3></th>\
+                        <td><h3>' + (feature.properties['tree_code'] !== null ? autolinker.link(String(feature.properties['tree_code']).replace(/'/g, '\'').toLocaleString()) : '') + '</h3></td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Kode Pohon</th>\
-                        <td>' + (feature.properties['tree_code'] !== null ? autolinker.link(String(feature.properties['tree_code']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">ID Pohon</th>\
+                        <td>' + (feature.properties['tree_id'] !== null ? autolinker.link(String(feature.properties['tree_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Nama Latin</th>\
@@ -254,7 +254,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">Harga Pohon</th>\
-                        <td>Rp ' + (feature.properties['tree_price'] !== null ? autolinker.link(String(feature.properties['tree_price']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td>Rp ' + (feature.properties['tree_price'] !== null ? Number(feature.properties['tree_price']).toLocaleString('id-ID') : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Serapan Karbon (kgCO2eq)</th>\
@@ -371,14 +371,16 @@
         ];
 
         var layBase = L.control.layers.tree(null, overlaysBasemaps, {
-            //namedToggle: true,
+            // namedToggle: true,
             //selectorBack: false,
             //closedSymbol: '&#8862; &#x1f5c0;',
             //openedSymbol: '&#8863; &#x1f5c1;',
-            //collapseAll: 'Collapse all',
-            //expandAll: 'Expand all',
+            // collapseAll: 'Collapse all',
+            // expandAll: 'Expand all',
             collapsed: false,
             position: 'bottomright',
+            // make select one
+
         });
 
         layBase.addTo(map);
